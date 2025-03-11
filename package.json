@@ -1,0 +1,30 @@
+{
+  "name": "biust-student-resource-directory",
+  "version": "0.0.1",
+  "description": "This project is built to provide students an easy way to find study resources like test papers, tutorial solutions related to their courses. It also provides a better interface to navigate the builms student library.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oarabilekoore/biust-student-resource-directory.git"
+  },
+  "keywords": [
+    "biust",
+    "library",
+    "past",
+    "papers"
+  ],
+  "author": "Oarabile Koore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oarabilekoore/biust-student-resource-directory/issues"
+  },
+  "homepage": "https://github.com/oarabilekoore/biust-student-resource-directory#readme",
+  "dependencies": {
+    "innerscope": "^0.1.74",
+    "vite": "^6.2.1"
+  }
+}
