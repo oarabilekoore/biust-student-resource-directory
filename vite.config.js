@@ -1,3 +1,3 @@
 export default {
-    base: '/biust-student-resource-directory/',
+    base: 'biust-student-resource-directory/',
   };

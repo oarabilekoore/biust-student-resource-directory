@@ -1,12 +1,14 @@
-import { Application, Layout, Paragraph, HorizontalRule, StyleSheet } from "innerscope";
+import { Application, Layout, Paragraph, HorizontalRule, State } from "innerscope";
 import FilledButton from "./components/buttons";
 
 const bsrd = new Application({
     title: 'Biust Resource Directory',
-    scrollbarvisibility: "shown",
+    scrollbarvisibility: "hidden",
 })
 
 bsrd.onStart(HomePage)
+
+const pageTheme = State('dark')
 
 function HomePage(){
     const page = Layout('linear', bsrd.root);
@@ -23,7 +25,9 @@ function HomePage(){
     hero_section.style.textAlign = "center";
     hero_section.childAlignment("center", "vertical", "fillxy");
 
-    const hero_sectionTitle = Paragraph("BIUST STUDENT RESOURCE DIRECTORY", hero_section);
+    const hero_sectionTitle = Paragraph(
+        "BIUST STUDENT RESOURCE DIRECTORY",
+        hero_section);
     hero_sectionTitle.style.fontSize = "2rem";
     hero_sectionTitle.style.fontWeight = "bold";
     hero_sectionTitle.style.marginBottom = "16px";
@@ -31,7 +35,8 @@ function HomePage(){
     HorizontalRule(hero_section).style.width = "3rem";
 
     const hero_sectionDescription = Paragraph(
-        "This project is built to provide students an easy way to find study resources like"
+        "This project is built to provide students an easy way "+
+        "to find study resources like"
         + "test papers, tutorial solutions related to their courses.",
         hero_section
     );
@@ -44,12 +49,9 @@ function HomePage(){
     hero_buttons.style.flexDirection = 'column';
     hero_buttons.style.alignItems = 'center'
     hero_buttons.style.gap = '10px'
-    
-    FilledButton("Get Started", hero_buttons).onclick = () => {
-        alert('Still Under Construction')
-    };
 
-    FilledButton("Help us build a better directory.", hero_buttons).onclick = () => {
-        alert('Still Under Construction')
+    FilledButton("Help us build a better directory",
+    hero_buttons).onclick = () => {
+        window.open('https://github.com/oarabilekoore/biust-student-resource-directory')
     }
 }
