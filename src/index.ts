@@ -1,5 +1,6 @@
-import { Application, Layout, Paragraph, HorizontalRule, State } from "innerscope";
+import { Application, LinearLayout, Paragraph, HorizontalRule } from "innerscope";
 import FilledButton from "./components/buttons";
+import { SearchBar } from "./components/searchbar";
 
 const bsrd = new Application({
     title: 'Biust Resource Directory',
@@ -8,22 +9,23 @@ const bsrd = new Application({
 
 bsrd.onStart(HomePage)
 
-const pageTheme = State('dark')
-
 function HomePage(){
-    const page = Layout('linear', bsrd.root);
-    page.childAlignment("top", "vertical");
-    page.scrollDirection("y");
+    const page = LinearLayout(bsrd.root);
+    page.LayoutDirection = "TOP_TO_BOTTOM";
+    page.ElementAlignment = "VCENTER"
+    page.ScrollDirection = "VERTICAL"
 
     page.style.backgroundColor = "#1e1e1e"; 
     page.style.color = "#ffffff"; 
     page.style.minHeight = "100vh";
     page.style.fontFamily = "Arial, sans-serif";
 
-    const hero_section = Layout("linear", page);
+    const hero_section = LinearLayout(page);
     hero_section.style.padding = "64px 32px";
     hero_section.style.textAlign = "center";
-    hero_section.childAlignment("center", "vertical", "fillxy");
+    hero_section.ParentFill = "FILLX";
+    hero_section.LayoutDirection = "TOP_TO_BOTTOM";
+    hero_section.ElementAlignment = "VCENTER"
 
     const hero_sectionTitle = Paragraph(
         "BIUST STUDENT RESOURCE DIRECTORY",
@@ -44,7 +46,7 @@ function HomePage(){
     hero_sectionDescription.style.color = "#cccccc";
     hero_sectionDescription.style.marginBottom = "32px";
 
-    const hero_buttons = Layout('linear', hero_section);
+    const hero_buttons = LinearLayout(hero_section);
     hero_buttons.style.display = 'flex';
     hero_buttons.style.flexDirection = 'column';
     hero_buttons.style.alignItems = 'center'
@@ -54,4 +56,10 @@ function HomePage(){
     hero_buttons).onclick = () => {
         window.open('https://github.com/oarabilekoore/biust-student-resource-directory')
     }
+
+    const search_bar = SearchBar(page)
+
+    search_bar.placeholder = 'Find your course revision materials.'
+    search_bar.style.width = '300px'
+    
 }
